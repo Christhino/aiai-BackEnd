@@ -4,7 +4,10 @@
     "description": "The Laravel Framework.",
     "keywords": [
         "framework",
-        "laravel"
+        "laravel",
+        "sms",
+        "laravel sms gateway",
+        "laravel SMS gateway me"
     ],
     "license": "MIT",
     "repositories": [
@@ -68,6 +71,7 @@
         "league/commonmark": "^1.5",
         "league/geotools": "@stable",
         "livewire/livewire": "^2.3",
+        "maatwebsite/excel": "^3.1.x-dev",
         "malhal/laravel-geographical": "^1.0",
         "mbezhanov/faker-provider-collection": "^2.0",
         "mtdowling/jmespath.php": "^2.6",

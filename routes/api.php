@@ -52,6 +52,7 @@ use App\Http\Controllers\API\OnboardingController;
 use App\Http\Controllers\API\FaqController;
 use App\Http\Controllers\API\SignedMediaController;
 use App\Http\Controllers\API\MyVendorController;
+use App\Http\Controllers\UssdController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
@@ -65,6 +66,12 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+//  USSD 
+Route::get('/get-ussd-request', [UssdController::class, 'getUssdRequest']);
+
+
+
 //CRON Job
 Route::get('/cron/job', function (Request $request) {
     //

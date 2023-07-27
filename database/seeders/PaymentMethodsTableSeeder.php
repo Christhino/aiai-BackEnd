@@ -224,6 +224,40 @@ class PaymentMethodsTableSeeder extends Seeder
                 'updated_at' => '2021-10-05 20:18:47',
                 'deleted_at' => NULL,
             ),
+            12 => 
+            array (
+                'id' => 14,
+                "name" =>  'Mvola',
+                'slug' => 'mvola',
+                'instruction' => NULL,
+                'secret_key' => '',
+                'public_key' => '',
+                'hash_key' => NULL,
+                'class' => NULL,
+                'is_active' => 1,
+                'is_cash' => 0,
+                'use_taxi' => 0,
+                'created_at' => '2023-07-27 16:41:10',
+                'updated_at' => '2023-07-27 16:41:47',
+                'deleted_at' => NULL,
+            ),
+            13 => 
+            array (
+                'id' => 15,
+                "name" =>  'Airtel',
+                'slug' => 'airtel',
+                'instruction' => NULL,
+                'secret_key' => '',
+                'public_key' => '',
+                'hash_key' => NULL,
+                'class' => NULL,
+                'is_active' => 1,
+                'is_cash' => 0,
+                'use_taxi' => 0,
+                'created_at' => '2023-07-27 16:41:10',
+                'updated_at' => '2023-07-27 16:41:47',
+                'deleted_at' => NULL,
+            )
         ));
         
         
