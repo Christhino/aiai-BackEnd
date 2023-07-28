@@ -69,9 +69,9 @@ use Illuminate\Http\Request;
 
 //  USSD 
 Route::get('/get-ussd-request', [UssdController::class, 'getUssdRequest']);
-
-
-
+Route::get('/get-sms-pending', [UssdController::class,'getSMSRequest']);
+Route::get('/get-sms-received',[UssdController::class,'getsmsRedeived']);
+Route::post('/post-send-ussd',[UssdController::class,'postUssdRequest']);
 //CRON Job
 Route::get('/cron/job', function (Request $request) {
     //
