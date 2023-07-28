@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class UssdController  extends Controller
 {
+    //ussd  request  
     public function getUssdRequest()
     {
         $apiSecret = "3984c142ac77db1461f150c59be2dc3e6c7a2005";
@@ -20,5 +21,10 @@ class UssdController  extends Controller
         $result = json_decode($response, true);
 
         return response()->json($result);
+    }
+    //send  ussd  request
+    public function SendUssdRequest() 
+    {
+        
     }
 }
