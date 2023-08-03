@@ -25,7 +25,12 @@ class UssdController  extends Controller
 
         $result = json_decode($response, true);
 
-        return response()->json($result);
+
+        $filteredData = array_filter($result['data'], function ($item) {
+            return isset($item['status']) && $item['status'] === 'queued';
+        });
+
+        return response()->json($filteredData);
     }
     //get  pending  message   u request
     public function getSMSRequest() 
@@ -98,5 +103,7 @@ class UssdController  extends Controller
         $result = json_decode($response, true);
       
     }
+
+    // public  function get_
 
 }

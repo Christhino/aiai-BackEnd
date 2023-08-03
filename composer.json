@@ -76,6 +76,7 @@
         "malhal/laravel-geographical": "^1.0",
         "mbezhanov/faker-provider-collection": "^2.0",
         "mtdowling/jmespath.php": "^2.6",
+        "nesbot/carbon": "^2.68",
         "nicmart/numbers": "^0.1.0",
         "orangehill/iseed": "^3.0",
         "ozdemirburak/iris": "^2.3",

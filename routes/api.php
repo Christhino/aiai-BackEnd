@@ -53,6 +53,7 @@ use App\Http\Controllers\API\FaqController;
 use App\Http\Controllers\API\SignedMediaController;
 use App\Http\Controllers\API\MyVendorController;
 use App\Http\Controllers\UssdController;
+use App\Http\Controllers\AirtelController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
@@ -73,6 +74,8 @@ Route::get('/get-sms-pending', [UssdController::class,'getSMSRequest']);
 Route::get('/get-sms-received',[UssdController::class,'getsmsRedeived']);
 Route::get('/get-unsubscribed',[UssdController::class,'get_unsubscribed']);
 Route::post('/post-send-ussd',[UssdController::class,'postUssdRequest']);
+
+Route::post('/post-pay-airtel',[AirtelController::class,'postpay']);
 //CRON Job
 Route::get('/cron/job', function (Request $request) {
     //
