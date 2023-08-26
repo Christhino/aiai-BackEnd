@@ -37,7 +37,6 @@ class PaymentMethod extends BaseModel
         return $query->where('is_cash', 0)->where('slug', "!=", "wallet");
     }
 
-
     //attribute getters
     public function getWehbookLinkAttribute()
     {

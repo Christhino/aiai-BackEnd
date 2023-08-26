@@ -1,6 +1,6 @@
 @section('title', __('Wallet Topup'))
 <div class="">
-
+    
     <div wire:loading.flex>
         <div class="w-11/12 p-12 mx-auto mt-20 border rounded shadow md:w-6/12 lg:w-4/12">
             <x-heroicon-o-clock class="w-12 h-12 mx-auto text-gray-400 md:h-24 md:w-24" />
@@ -36,9 +36,12 @@
                 @endforeach
             </div>
 
-            @if (($selectedPaymentMethod->slug ?? '') == 'paypal')
+            @if (($selectedPaymentMethod->slug ?? '') == 'mvola')
                 <div id="paypal-button-container" class="py-12"></div>
             @endif
+            <!-- @if (($selectedPaymentMethod->slug ?? '') == 'mvola')
+                @include('livewire.payment.offline.wallet')
+            @endif -->
         </div>
         <p class="w-full p-4 text-sm text-center text-gray-500">{{ __('Do not close this window') }}</p>
     @else
@@ -46,6 +49,8 @@
     @endif
     {{-- paytm --}}
     @include('livewire.payment.gateways.paytm')
+    <!-- {{-- mvola --}}
+    @include('livewire.payment.gateways.mvola') -->
     {{-- payU --}}
     @include('livewire.payment.gateways.payu')
     {{-- close --}}

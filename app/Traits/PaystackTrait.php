@@ -86,7 +86,7 @@ trait PaystackTrait
                 throw new \Exception("Order is invalid");
             } else if (!$order->isDirty('payment_status') && $order->payment_status  == "successful") {
                 //throw new \Exception("Order is has already been paid");
-return;
+              return;
             }
 
 
@@ -123,7 +123,7 @@ return;
                 throw new \Exception("Wallet Topup is invalid");
             } else if (!$walletTransaction->isDirty('status') && $walletTransaction->status == "successful") {
                 // throw new \Exception("Wallet Topup is has already been paid");
-return;
+               return;
             }
 
 

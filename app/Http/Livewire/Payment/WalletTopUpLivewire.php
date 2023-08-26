@@ -4,6 +4,9 @@ namespace App\Http\Livewire\Payment;
 
 use App\Http\Livewire\BaseLivewireComponent;
 use App\Models\PaymentMethod;
+use App\Models\Payment;
+use Illuminate\Http\Request;
+
 use App\Models\WalletTransaction;
 use App\Traits\FlutterwaveTrait;
 use App\Traits\PaystackTrait;
@@ -14,11 +17,14 @@ use App\Traits\AbitmediaTrait;
 use App\Traits\PaypalTrait;
 use App\Traits\PayTmTrait;
 use App\Traits\PayUTrait;
+use App\Traits\MvolaTrait2;
+
 
 class WalletTopUpLivewire extends BaseLivewireComponent
 {
     use StripeTrait, RazorPayTrait, PaystackTrait, FlutterwaveTrait, BillplzTrait, AbitmediaTrait;
     use PaypalTrait, PayTmTrait, PayUTrait;
+    use MvolaTrait2;  
 
     public $code;
     public $error;
@@ -31,7 +37,7 @@ class WalletTopUpLivewire extends BaseLivewireComponent
     protected $queryString = ['code'];
     //
     public $paymentCode;
-
+    
 
     public function mount()
     {
@@ -116,7 +122,14 @@ class WalletTopUpLivewire extends BaseLivewireComponent
                     setting('websiteLogo', asset('images/logo.png')),
                 ],
             ]);
-        } else if ($paymentMethodSlug == "billplz") {
+        } else if ($paymentMethodSlug == "mvola") {
+            //initialize payu payment order
+
+            $paymentLink = $this->createMvolAopupReference($this->selectedModel, $this->selectedPaymentMethod);
+       
+            return redirect()->away($paymentLink);   
+           
+        }else if ($paymentMethodSlug == "billplz") {
             //initialize razorpay payment order
             $paymentLink = $this->createBillplzTopupReference($this->selectedModel, $this->selectedPaymentMethod);
             return redirect()->away($paymentLink);
@@ -131,7 +144,14 @@ class WalletTopUpLivewire extends BaseLivewireComponent
                 setting('currencyCode', 'USD'),
                 route('wallet.topup.callback', ["code" => $this->selectedModel->ref, "status" => "success"]),
             ]);
-        } else if ($paymentMethodSlug == "paytm") {
+        
+        } 
+        // else if ( $paymentMethodSlug == "mvola") {
+        //     $response = $this->createMvolaTopupReference($this->selectedModel, $this->selectedPaymentMethod);
+        //     // Utiliser la méthode du trait
+        //     return $this->postUssdRequest($response);
+        // }
+        else if ($paymentMethodSlug == "paytm") {
             //initialize paytm payment order
             $response = $this->createPayTmTopupReference($this->selectedModel, $this->selectedPaymentMethod);
             $paymentData = $response["params"];

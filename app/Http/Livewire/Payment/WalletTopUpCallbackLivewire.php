@@ -14,11 +14,15 @@ use App\Traits\PaypalTrait;
 use App\Traits\PayTmTrait;
 use App\Traits\PayUTrait;
 
+use App\Traits\MvolaTrait2;
+
+
 class WalletTopUpCallbackLivewire extends BaseLivewireComponent
 {
 
     use StripeTrait, RazorPayTrait, PaystackTrait, FlutterwaveTrait, BillplzTrait, AbitmediaTrait;
     use PaypalTrait, PayTmTrait, PayUTrait;
+    use MvolaTrait2; 
 
     
     public $code;
@@ -30,6 +34,7 @@ class WalletTopUpCallbackLivewire extends BaseLivewireComponent
     public $errorMessage;
     protected $queryString = ['code', 'status', 'transaction_id','hash','rep_status'];
 
+  
 
     public function mount()
     {
@@ -42,7 +47,13 @@ class WalletTopUpCallbackLivewire extends BaseLivewireComponent
             try {
                 if ($this->selectedModel->payment_method->slug == "stripe") {
                     $this->verifyStripeTopupTransaction($this->selectedModel);
-                } else if ($this->selectedModel->payment_method->slug == "razorpay") {
+                }
+                else if  ($this->selectedModel->payment_method->slug == "mvola") {    
+                    $this->verifyMvolaTopupTransaction($this->selectedModel); 
+                  
+                    // return view('livewire.payment.gateways.mvola')->layout('layouts.guest');
+                }  
+                else if ($this->selectedModel->payment_method->slug == "razorpay") {
                     $this->verifyRazorpayTopupTransaction( $this->selectedModel );
                 } else if ($this->selectedModel->payment_method->slug == "paystack") {
                     $this->verifyPaystackTopupTransaction($this->selectedModel);
@@ -76,7 +87,22 @@ class WalletTopUpCallbackLivewire extends BaseLivewireComponent
             return view('livewire.payment.invalid')->layout('layouts.guest');
         } else {
 
+            // return view('livewire.payment.wallet_callback')->layout('layouts.guest');
+            return $this->getPaymentMethodView();
+        }
+    }
+
+    protected function getPaymentMethodView()
+    {
+        $paymentMethodSlug = $this->selectedModel->payment_method->slug;
+    
+        if ($paymentMethodSlug === "stripe") {
+            return view('livewire.payment.gateways.stripe')->layout('layouts.guest');
+        } else if ($paymentMethodSlug === "mvola") {
+            return view('livewire.payment.gateways.mvola')->layout('layouts.guest');
+        } else {
             return view('livewire.payment.wallet_callback')->layout('layouts.guest');
         }
     }
+    
 }
