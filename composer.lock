@@ -1822,7 +1822,7 @@
                     "email": "schmittjoh@gmail.com"
                 }
             ],
-            "description": "PHP Doctrine Inflector is a small library that can perform string manipulations with regard to upper/lowercase and singular/plural forms of words.",
+            "description": "PHP Doctrine Inflector is a small library that can per string manipulations with regard to upper/lowercase and singular/plural s of words.",
             "homepage": "https://www.doctrine-project.org/projects/inflector.html",
             "keywords": [
                 "inflection",
@@ -2355,7 +2355,7 @@
                     "role": "Developer"
                 }
             ],
-            "description": "A simple library to encode and decode JSON Web Tokens (JWT) in PHP. Should conform to the current spec.",
+            "description": "A simple library to encode and decode JSON Web Tokens (JWT) in PHP. Should con to the current spec.",
             "homepage": "https://github.com/firebase/php-jwt",
             "keywords": [
                 "jwt",
@@ -2840,7 +2840,7 @@
                 "squizlabs/php_codesniffer": "2.*"
             },
             "suggest": {
-                "ext-grpc": "The gRPC extension enables use of the performant gRPC transport",
+                "ext-grpc": "The gRPC extension enables use of the perant gRPC transport",
                 "ext-protobuf": "Provides a significant increase in throughput over the pure PHP protobuf implementation. See https://cloud.google.com/php/grpc for installation instructions."
             },
             "type": "library",
@@ -3025,12 +3025,12 @@
             "version": "v0.3.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/GoogleCloudPlatform/grpc-gcp-php.git",
+                "url": "https://github.com/GoogleCloudPlat/grpc-gcp-php.git",
                 "reference": "4d8b455a45a89f57e1552cadc41a43bc34c40456"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GoogleCloudPlatform/grpc-gcp-php/zipball/4d8b455a45a89f57e1552cadc41a43bc34c40456",
+                "url": "https://api.github.com/repos/GoogleCloudPlat/grpc-gcp-php/zipball/4d8b455a45a89f57e1552cadc41a43bc34c40456",
                 "reference": "4d8b455a45a89f57e1552cadc41a43bc34c40456",
                 "shasum": ""
             },
@@ -3060,8 +3060,8 @@
             ],
             "description": "gRPC GCP library for channel management",
             "support": {
-                "issues": "https://github.com/GoogleCloudPlatform/grpc-gcp-php/issues",
-                "source": "https://github.com/GoogleCloudPlatform/grpc-gcp-php/tree/v0.3.0"
+                "issues": "https://github.com/GoogleCloudPlat/grpc-gcp-php/issues",
+                "source": "https://github.com/GoogleCloudPlat/grpc-gcp-php/tree/v0.3.0"
             },
             "time": "2023-04-24T14:37:29+00:00"
         },
@@ -3236,7 +3236,7 @@
                 "google/auth": "^v1.3.0"
             },
             "suggest": {
-                "ext-protobuf": "For better performance, install the protobuf C extension.",
+                "ext-protobuf": "For better perance, install the protobuf C extension.",
                 "google/protobuf": "To get started using grpc quickly, install the native protobuf library."
             },
             "type": "library",
@@ -5940,7 +5940,7 @@
                     "homepage": "http://nicolo.martini.io"
                 }
             ],
-            "description": "Format numbers in various formats, like scientific notation or unit-suffix notation",
+            "description": "at numbers in various ats, like scientific notation or unit-suffix notation",
             "support": {
                 "issues": "https://github.com/nicmart/Numbers/issues",
                 "source": "https://github.com/nicmart/Numbers/tree/master"
@@ -6181,7 +6181,7 @@
                 "manipulation",
                 "rgb",
                 "rgba",
-                "transformation"
+                "transation"
             ],
             "support": {
                 "issues": "https://github.com/ozdemirburak/iris/issues",
@@ -9541,7 +9541,7 @@
                 "symfony/console": "<4.4",
                 "symfony/dependency-injection": "<5.3",
                 "symfony/doctrine-bridge": "<5.0",
-                "symfony/form": "<5.0",
+                "symfony/": "<5.0",
                 "symfony/http-client": "<5.0",
                 "symfony/mailer": "<5.0",
                 "symfony/messenger": "<5.0",
@@ -9726,7 +9726,7 @@
                 "ext-ctype": "*"
             },
             "suggest": {
-                "ext-ctype": "For best performance"
+                "ext-ctype": "For best perance"
             },
             "type": "library",
             "extra": {
@@ -9808,7 +9808,7 @@
                 "ext-iconv": "*"
             },
             "suggest": {
-                "ext-iconv": "For best performance"
+                "ext-iconv": "For best perance"
             },
             "type": "library",
             "extra": {
@@ -9888,7 +9888,7 @@
                 "php": ">=7.1"
             },
             "suggest": {
-                "ext-intl": "For best performance"
+                "ext-intl": "For best perance"
             },
             "type": "library",
             "extra": {
@@ -9971,7 +9971,7 @@
                 "symfony/polyfill-php72": "^1.10"
             },
             "suggest": {
-                "ext-intl": "For best performance"
+                "ext-intl": "For best perance"
             },
             "type": "library",
             "extra": {
@@ -10056,7 +10056,7 @@
                 "php": ">=7.1"
             },
             "suggest": {
-                "ext-intl": "For best performance"
+                "ext-intl": "For best perance"
             },
             "type": "library",
             "extra": {
@@ -10143,7 +10143,7 @@
                 "ext-mbstring": "*"
             },
             "suggest": {
-                "ext-mbstring": "For best performance"
+                "ext-mbstring": "For best perance"
             },
             "type": "library",
             "extra": {
@@ -10715,7 +10715,7 @@
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
-            "description": "Extracts information about PHP class' properties using metadata of popular sources",
+            "description": "Extracts ination about PHP class' properties using metadata of popular sources",
             "homepage": "https://symfony.com",
             "keywords": [
                 "doctrine",
@@ -10871,7 +10871,7 @@
                 "symfony/dependency-injection": "^5.4|^6.0",
                 "symfony/error-handler": "^5.4|^6.0",
                 "symfony/filesystem": "^5.4|^6.0",
-                "symfony/form": "^5.4|^6.0",
+                "symfony/": "^5.4|^6.0",
                 "symfony/http-foundation": "^5.4|^6.0",
                 "symfony/http-kernel": "^5.4|^6.0",
                 "symfony/mime": "^5.4|^6.0",
@@ -10906,7 +10906,7 @@
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
-            "description": "Handles serializing and deserializing data structures, including object graphs, into array structures or other formats like XML and JSON.",
+            "description": "Handles serializing and deserializing data structures, including object graphs, into array structures or other ats like XML and JSON.",
             "homepage": "https://symfony.com",
             "support": {
                 "source": "https://github.com/symfony/serializer/tree/v6.3.1"
@@ -11581,7 +11581,7 @@
                     "homepage": "http://www.moelleken.org/"
                 }
             ],
-            "description": "Portable ASCII library - performance optimized (ascii) string functions for php.",
+            "description": "Portable ASCII library - perance optimized (ascii) string functions for php.",
             "homepage": "https://github.com/voku/portable-ascii",
             "keywords": [
                 "ascii",
@@ -12169,7 +12169,7 @@
             },
             "suggest": {
                 "symfony/var-dumper": "Pretty print complex values better with var-dumper available",
-                "whoops/soap": "Formats errors as SOAP responses"
+                "whoops/soap": "ats errors as SOAP responses"
             },
             "type": "library",
             "extra": {
@@ -12313,7 +12313,7 @@
                     "email": "hello@tabaciu.ro"
                 }
             ],
-            "description": "Advanced Laravel generators, that include schema information.",
+            "description": "Advanced Laravel generators, that include schema ination.",
             "keywords": [
                 "generators",
                 "laravel"
@@ -12667,7 +12667,7 @@
                     "role": "Developer"
                 }
             ],
-            "description": "Component for reading phar.io manifest information from a PHP Archive (PHAR)",
+            "description": "Component for reading phar.io manifest ination from a PHP Archive (PHAR)",
             "support": {
                 "issues": "https://github.com/phar-io/manifest/issues",
                 "source": "https://github.com/phar-io/manifest/tree/2.0.3"
@@ -12718,7 +12718,7 @@
                     "role": "Developer"
                 }
             ],
-            "description": "Library for handling version information and constraints",
+            "description": "Library for handling version ination and constraints",
             "support": {
                 "issues": "https://github.com/phar-io/version/issues",
                 "source": "https://github.com/phar-io/version/tree/3.2.1"
@@ -12783,7 +12783,7 @@
                     "role": "lead"
                 }
             ],
-            "description": "Library that provides collection, processing, and rendering functionality for PHP code coverage information.",
+            "description": "Library that provides collection, processing, and rendering functionality for PHP code coverage ination.",
             "homepage": "https://github.com/sebastianbergmann/php-code-coverage",
             "keywords": [
                 "coverage",
@@ -14195,7 +14195,7 @@
                     "role": "Developer"
                 }
             ],
-            "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
+            "description": "A small library for converting tokenized PHP source code into XML and potentially other ats",
             "support": {
                 "issues": "https://github.com/theseer/tokenizer/issues",
                 "source": "https://github.com/theseer/tokenizer/tree/1.2.1"
@@ -14219,9 +14219,9 @@
     },
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": {
+    "plat": {
         "php": "^7.3|^8.0"
     },
-    "platform-dev": [],
+    "plat-dev": [],
     "plugin-api-version": "2.3.0"
 }

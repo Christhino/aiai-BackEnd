@@ -107,45 +107,45 @@ trait WebhookTrait
             "message" => "No record found",
         ], 200);
     }
-    public function  rerouteMvolaPaymentWehbook ( )
-    {
-        $input = @file_get_contents("php://input");
-        $requestData = json_decode($input, true);
+    // public function  rerouteMvolaPaymentWehbook ( )
+    // {
+    //     $input = @file_get_contents("php://input");
+    //     $requestData = json_decode($input, true);
 
-        if (empty($requestData)) {
-            return response()->json([
-                "message" => "No params",
-            ], 400);
-        }
-        $txRef = $requestData['data']['reference'];
-        //check which type of transaction
-        $walletTransaction = WalletTransaction::where('session_id', $txRef)->first();
-        $order = Order::whereHas('payment', function ($q) use ($txRef) {
-            $q->where('ref', $txRef);
-        })->first();
-        $vendorSubscription = SubscriptionVendor::where('code', $txRef)->first();
-        //
-        if ($order) {
-            return route('payment.callback', [
-                "code" => $order->code,
-                "status" => "success",
-            ]);
-        } else if ($walletTransaction) {
-            return route('wallet.topup.callback', [
-                "code" => $walletTransaction->ref,
-                "status" => "success",
-            ]);
-        } else if ($vendorSubscription) {
-            return route('subscription.callback', [
-                "code" => $vendorSubscription->code,
-                "status" => "success",
-            ]);
-        }
+    //     if (empty($requestData)) {
+    //         return response()->json([
+    //             "message" => "No params",
+    //         ], 400);
+    //     }
+    //     $txRef = $requestData['data']['reference'];
+    //     //check which type of transaction
+    //     $walletTransaction = WalletTransaction::where('session_id', $txRef)->first();
+    //     $order = Order::whereHas('payment', function ($q) use ($txRef) {
+    //         $q->where('ref', $txRef);
+    //     })->first();
+    //     $vendorSubscription = SubscriptionVendor::where('code', $txRef)->first();
+    //     //
+    //     if ($order) {
+    //         return route('payment.callback', [
+    //             "code" => $order->code,
+    //             "status" => "success",
+    //         ]);
+    //     } else if ($walletTransaction) {
+    //         return route('wallet.topup.callback', [
+    //             "code" => $walletTransaction->ref,
+    //             "status" => "success",
+    //         ]);
+    //     } else if ($vendorSubscription) {
+    //         return route('subscription.callback', [
+    //             "code" => $vendorSubscription->code,
+    //             "status" => "success",
+    //         ]);
+    //     }
 
-        return response()->json([
-            "message" => "No record found",
-        ], 400);
-    }
+    //     return response()->json([
+    //         "message" => "No record found",
+    //     ], 400);
+    // }
     public function rerouteFlutterwavePaymentWehbook()
     {
         $requestData = request()->all();

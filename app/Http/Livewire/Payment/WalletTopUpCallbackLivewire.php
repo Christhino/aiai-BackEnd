@@ -50,8 +50,6 @@ class WalletTopUpCallbackLivewire extends BaseLivewireComponent
                 }
                 else if  ($this->selectedModel->payment_method->slug == "mvola") {    
                     $this->verifyMvolaTopupTransaction($this->selectedModel); 
-                  
-                    // return view('livewire.payment.gateways.mvola')->layout('layouts.guest');
                 }  
                 else if ($this->selectedModel->payment_method->slug == "razorpay") {
                     $this->verifyRazorpayTopupTransaction( $this->selectedModel );
@@ -86,23 +84,7 @@ class WalletTopUpCallbackLivewire extends BaseLivewireComponent
         if (empty($this->selectedModel)) {
             return view('livewire.payment.invalid')->layout('layouts.guest');
         } else {
-
-            // return view('livewire.payment.wallet_callback')->layout('layouts.guest');
-            return $this->getPaymentMethodView();
+            return view('livewire.payment.wallet')->layout('layouts.guest');
         }
     }
-
-    protected function getPaymentMethodView()
-    {
-        $paymentMethodSlug = $this->selectedModel->payment_method->slug;
-    
-        if ($paymentMethodSlug === "stripe") {
-            return view('livewire.payment.gateways.stripe')->layout('layouts.guest');
-        } else if ($paymentMethodSlug === "mvola") {
-            return view('livewire.payment.gateways.mvola')->layout('layouts.guest');
-        } else {
-            return view('livewire.payment.wallet_callback')->layout('layouts.guest');
-        }
-    }
-    
 }

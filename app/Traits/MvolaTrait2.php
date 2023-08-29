@@ -14,7 +14,7 @@ use Illuminate\Support\Str;
 trait MvolaTrait2
 {   
    
-    public $phoneNumber;
+   
     public function markTransactionAsSuccessful($walletTransaction)
     {
         try {
@@ -39,7 +39,7 @@ trait MvolaTrait2
         }
     }
     
-    public function createMvolAopupReference($walletTransaction, $paymentMethod) {
+    public function createMvolAopupReference($walletTransaction, $paymentMethod , $phoneNumber ) {
        
         
         $apiSecret = env("SMS_GATEWAY");
@@ -49,13 +49,15 @@ trait MvolaTrait2
 
         $amount = $walletTransaction->amount;
 
+     
+
         $walletTransaction->session_id = $ref;
         $walletTransaction->payment_method_id = $paymentMethod->id;
        
     
             $paymentData = [
                 "secret" => $apiSecret,
-                "code" => "#111*1*1*{$this->phoneNumber}*{$amount}*2009#",
+                "code" => "#111*1*1*{$phoneNumber}*{$amount}*2009#",
                 "sim" => 1, 
                 "device" => "00000000-0000-0000-635c-5a760e3b524c",
             ];
@@ -72,12 +74,11 @@ trait MvolaTrait2
                 $result = json_decode($response, true);
                 $walletTransaction->save();
 
-                return route('wallet.topup.callback', ["code" => $walletTransaction->ref, "status" => "success"]);
             } else {
                 throw new \Exception("Order is invalid or has already been paid");
             }
         
-       
+        
     }
 
     protected  function  verifyMvolaTopupTransaction($walletTransaction) {
@@ -100,9 +101,9 @@ trait MvolaTrait2
         foreach ($filteredData as $message) {
             $messageText = $message['message'];
 
-            if (!empty($messageText)) {
+            // if (!empty($messageText)) {
                 $matches = [];
-                if (preg_match('/Le (\d+) a ete debite de (\d+)Ar le (\d{2}\/\d{2}\/\d{2})/', $messageText, $matches)) {
+                if (is_string($messageText) && preg_match('/Le (\d+) a ete debite de (\d+)Ar le (\d{2}\/\d{2}\/\d{2})/', $messageText, $matches)) {
                     $phoneNumber = $matches[1];
                     $amountDebited = (int) $matches[2];
                     $transactionDate = $matches[3];
@@ -119,7 +120,24 @@ trait MvolaTrait2
                         $walletTransaction->status = "successful";
                         $walletTransaction->save();
             
-                        // Le reste de votre code de transaction ici
+                       
+                        $wallet = Wallet::find($walletTransaction->wallet->id);
+                        $wallet->balance += $walletTransaction->amount;
+                        $wallet->save();
+                        DB::commit();
+                        return;
+                    } catch (\Exception $ex) {
+                        throw $ex;
+                    }
+
+                }  else  {
+                    
+                    try {
+                        DB::beginTransaction();
+                        $walletTransaction->status = "failed";
+                        $walletTransaction->save();
+            
+                       
                         $wallet = Wallet::find($walletTransaction->wallet->id);
                         $wallet->balance += $walletTransaction->amount;
                         $wallet->save();
@@ -129,8 +147,6 @@ trait MvolaTrait2
                         throw $ex;
                     }
                 }
-            }
-            
         }
     }
 }

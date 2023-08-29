@@ -524,4 +524,5 @@ Route::group(['middleware' => ['web']], function () {
     //Subscription callback
     // Route::get('subscription/payment/callback', SubscribeCallbackLivewire::class)->name('subscription.callback');
     Route::get('subscription/payment/callback/{code}', SubscribeCallbackLivewire::class)->name('subscription.callback');
+    // web.php
 });
